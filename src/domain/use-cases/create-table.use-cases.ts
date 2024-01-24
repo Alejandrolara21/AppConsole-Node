@@ -15,13 +15,15 @@ export class CreateTable implements CreateTableUseCase{
     ){}
 
     execute ({base, limit = 10} : CreateTableOptions) {
-        let data:string = `
-            ===========================
-                    TABLA DEL ${base}
-            ==========================\n
-        `;
+        // let data:string = `
+        //     ===========================
+        //             TABLA DEL ${base}
+        //     ==========================\n
+        // `;
+        let data:string = '';
         for (let i = 1; i <= limit; i++) {
-            data += `${base} x ${i} = ${base*i} \n`;
+            data += `${base} x ${i} = ${base*i}`;
+            if(i < limit) data+= '\n';
         }
 
         return data;
